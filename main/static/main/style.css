@@ -9,7 +9,7 @@ main {
     padding: 24px 20px;
 }
 
-.site-header, .site-footer {
+.site-header {
     background: #fff;
     padding: 16px max(20px, calc((100% - 1000px) / 2));
 }
@@ -75,7 +75,6 @@ a:focus-visible, .button:focus-visible {
 
 .event-card h2 {
     margin: 0 0 8px;
-    color: #4a90e2;
     font-size: 20px;
 }
 
@@ -90,7 +89,6 @@ a:focus-visible, .button:focus-visible {
     border-radius: 8px;
 }
 
-.event-detail h1 { color: #4a90e2; }
 .form-field { margin: 16px 0; }
 .form-field label { display: block; margin-bottom: 6px; }
 .form-field input, .form-field textarea { box-sizing: border-box; width: 100%; padding: 10px; font: inherit; }

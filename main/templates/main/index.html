@@ -3,11 +3,6 @@
 {% block title %}Главная{% endblock %}
 
 {% block content %}
-    <section class="intro">
-        <h1>Находите интересные мероприятия</h1>
-        <p>Здесь вы можете узнать о предстоящих событиях и выбрать мероприятие для себя.</p>
-        <a class="button" href="{% url 'event_list' %}">Все мероприятия</a>
-    </section>
     <section>
         <h2 class="section-title">Ближайшие мероприятия</h2>
         <div class="events">
@@ -15,7 +10,6 @@
                 <article class="event-card">
                     {% if event.image %}<img src="{{ event.image.url }}" alt="{{ event.event_name }}" class="event-image">{% endif %}
                     <h3>{{ event.event_name }}</h3>
-                    {% if event.short_description %}<p>{{ event.short_description }}</p>{% endif %}
                     <small class="date">{{ event.date|date:"d.m.Y H:i" }}</small>
                     {% if event.location %}<p class="location">Место проведения: {{ event.location }}</p>{% endif %}
                     <p><a href="{% url 'event_detail' event.id %}">Подробнее</a></p>
