@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Мероприятия{% endblock %}
+
+{% block content %}
+    <h1 class="section-title">Все мероприятия</h1>
+    <div class="events">
+        {% for event in events %}
+            <article class="event-card">
+                {% if event.image %}<img src="{{ event.image.url }}" alt="{{ event.event_name }}" class="event-image">{% endif %}
+                <h2>{{ event.event_name }}</h2>
+                {% if event.short_description %}<p>{{ event.short_description }}</p>{% endif %}
+                <p>{{ event.event_text }}</p>
+                <small class="date">{{ event.date|date:"d.m.Y H:i" }}</small>
+                {% if event.location %}<p class="location">Место проведения: {{ event.location }}</p>{% endif %}
+                {% if event.capacity %}<p class="capacity">Вместимость: {{ event.capacity }} человек</p>{% endif %}
+            </article>
+        {% empty %}
+            <p>Опубликованных мероприятий пока нет.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

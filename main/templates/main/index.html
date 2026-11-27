@@ -1,41 +1,27 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Мероприятия</title>
-    <link rel="stylesheet" href="{% static 'main/style.css' %}">
-</head>
-<body>
-    <h1>Список мероприятий</h1>
-    <div class="events">
-        {% for event in events %}
-            <div class="event-card">
-                {% if event.image %}
-                    <img src="{{ event.image.url }}" alt="{{ event.event_name }}" class="event-image">
-                {% endif %}
+{% extends 'main/base.html' %}
 
-                <h2>{{ event.event_name }}</h2>
+{% block title %}Главная{% endblock %}
 
-                {% if event.short_description %}
-                    <p>{{ event.short_description }}</p>
-                {% endif %}
-
-                <p>{{ event.event_text }}</p>
-
-                <small class="date">{{ event.date|date:"d.m.Y H:i" }}</small>
-
-                {% if event.location %}
-                    <p class="location">Место проведения: {{ event.location }}</p>
-                {% endif %}
-
-                {% if event.capacity %}
-                    <p class="capacity">Вместимость: {{ event.capacity }} человек</p>
-                {% endif %}
-            </div>
-        {% empty %}
-            <p>Мероприятий пока нет.</p>
-        {% endfor %}
-    </div>
-</body>
-</html>
+{% block content %}
+    <section class="intro">
+        <h1>Находите интересные мероприятия</h1>
+        <p>Здесь вы можете узнать о предстоящих событиях и выбрать мероприятие для себя.</p>
+        <a class="button" href="{% url 'event_list' %}">Все мероприятия</a>
+    </section>
+    <section>
+        <h2 class="section-title">Ближайшие мероприятия</h2>
+        <div class="events">
+            {% for event in events %}
+                <article class="event-card">
+                    {% if event.image %}<img src="{{ event.image.url }}" alt="{{ event.event_name }}" class="event-image">{% endif %}
+                    <h3>{{ event.event_name }}</h3>
+                    {% if event.short_description %}<p>{{ event.short_description }}</p>{% endif %}
+                    <small class="date">{{ event.date|date:"d.m.Y H:i" }}</small>
+                    {% if event.location %}<p class="location">Место проведения: {{ event.location }}</p>{% endif %}
+                </article>
+            {% empty %}
+                <p>Опубликованных мероприятий пока нет.</p>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
