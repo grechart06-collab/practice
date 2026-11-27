@@ -79,6 +79,25 @@ a:focus-visible, .button:focus-visible {
     font-size: 20px;
 }
 
+.event-card h2 a { color: inherit; text-decoration: none; }
+.event-card h2 a:hover { text-decoration: underline; }
+
+.event-detail, .registration-form {
+    max-width: 760px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+}
+
+.event-detail h1 { color: #4a90e2; }
+.form-field { margin: 16px 0; }
+.form-field label { display: block; margin-bottom: 6px; }
+.form-field input, .form-field textarea { box-sizing: border-box; width: 100%; padding: 10px; font: inherit; }
+.error { color: #b42318; }
+.success { color: #18733b; }
+button { border: 0; cursor: pointer; font: inherit; }
+
 .event-card p {
     margin: 0 0 10px;
     color: #444;
